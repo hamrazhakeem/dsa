@@ -129,22 +129,23 @@ class LinkedList:
 
     def add_middle(self, data):
         if not self.head:
+            self.head = Node(data)
             return
-        
+
+        if not self.head.next:
+            self.head.next = Node(data)
+            return
+
         slow = fast = self.head
         prev = None
-
         while fast and fast.next:
             prev = slow
             slow = slow.next
             fast = fast.next.next
-            
+        
         new_node = Node(data)
         new_node.next = slow
-        if prev:
-            prev.next = new_node
-        else:
-            self.head = new_node
+        prev.next = new_node
 
     def del_middle(self):
         if not self.head:
