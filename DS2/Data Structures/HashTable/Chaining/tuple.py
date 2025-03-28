@@ -4,10 +4,7 @@ class HashTable:
         self.arr = [[] for i in range(self.MAX)]
 
     def get_hash(self, key):
-        hash = 0
-        for char in key:
-            hash += ord(char)
-        return hash % self.MAX
+        return sum(ord(char) for char in str(key)) % self.MAX
     
     def __setitem__(self, key, value):
         hash = self.get_hash(key)
@@ -30,10 +27,18 @@ class HashTable:
                 del self.arr[hash][idx]
                 break
 
+    def items(self):
+        all_items = []
+        for index in self.arr:
+            for entry in index:
+                all_items.append(entry)
+        return all_items
+
+    def __repr__(self):
+        return str(self.items())
+
 ht = HashTable()
-ht['march 6'] = 10
-ht['march 17'] = 30
+ht['apple'] = 10
 ht['banana'] = 20
-del ht['banana']
-print(ht['march 6'])
-print(ht.arr)
+del ht['apple']
+print(ht)
