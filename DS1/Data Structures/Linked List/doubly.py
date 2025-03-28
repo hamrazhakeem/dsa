@@ -88,6 +88,8 @@ class LinkedList:
                     n.next.prev = new_node
                 else:
                     self.tail = new_node
+                
+                n.next = new_node
                 return
             
             n = n.next
@@ -127,3 +129,17 @@ class LinkedList:
                     self.tail = current
             else:
                 current = current.next
+
+ll = LinkedList()
+ll.add_begin(10)
+ll.add_begin(10)
+ll.add_begin(5)
+ll.add_end(20)
+ll.add_end(20)
+ll.del_with_val(20)
+ll.remove_duplicates_in_a_sorted_doubly_linked_list()
+ll.add_after(10, 100)
+ll.add_before(100, 50)
+ll.print()
+print()
+ll.print_reverse()
