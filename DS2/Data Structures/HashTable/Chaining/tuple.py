@@ -40,5 +40,6 @@ class HashTable:
 ht = HashTable()
 ht['apple'] = 10
 ht['banana'] = 20
+print(ht['apple'])
 del ht['apple']
 print(ht)
